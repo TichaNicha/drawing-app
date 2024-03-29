@@ -1,5 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import chroma from 'chroma-js';
+
+// generate 3 random colours
+function generateRandomPalette(){
+
+  // gen rand colour
+  const baseColour = chroma.random();
+
+  // gen triadic colour palette based on random colour
+  const triadicPalette = chroma.scale([baseColour, baseColour.saturate(), baseColour.saturate().darker()]);
+
+  return triadicPalette.colors(3);
+}
+
+console.log(generateRandomPalette());
 
 function App() {
   return (
