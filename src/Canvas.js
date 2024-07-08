@@ -24,25 +24,42 @@ function Canvas({ color, penSize, canvasRef }) {
       ctx.lineCap = 'round';
       ctx.strokeStyle = color;
 
-      ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+      // Adjust coordinates for touch devices
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+      ctx.lineTo(clientX - canvas.offsetLeft, clientY - canvas.offsetTop);
       ctx.stroke();
       ctx.beginPath();
-      ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+      ctx.moveTo(clientX - canvas.offsetLeft, clientY - canvas.offsetTop);
     };
 
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchend', stopDrawing);
+    canvas.addEventListener('touchmove', draw);
 
     return () => {
       canvas.removeEventListener('mousedown', startDrawing);
       canvas.removeEventListener('mouseup', stopDrawing);
       canvas.removeEventListener('mousemove', draw);
+      canvas.removeEventListener('touchstart', startDrawing);
+      canvas.removeEventListener('touchend', stopDrawing);
+      canvas.removeEventListener('touchmove', draw);
     };
   }, [color, penSize, drawing]);
 
   return (
-    <canvas ref={canvasRef} width="800" height="600" style={{ border: '1px solid #000' }} />
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <canvas
+        ref={canvasRef}
+        width="800"
+        height="600"
+        style={{ border: '1px solid #000' }}
+      />
+    </div>
   );
 }
 
