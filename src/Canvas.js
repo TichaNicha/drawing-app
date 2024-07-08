@@ -77,6 +77,7 @@ function Canvas({ color, penSize }) {
         width="800"
         height="600"
         style={{ border: '1px solid #000', display: 'block', margin: 'auto' }}
+        id="canvas"
       />
     </div>
   );

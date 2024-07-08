@@ -5,7 +5,7 @@ function Toolbar({ setColor, setPenSize, onScrambleColors, colors }) {
   useEffect(() => {
     const handleKeydown = (e) => {
       if (e.code === 'Space') {
-        e.preventDefault(); // prevent default spacebar action (scrolling)
+        e.preventDefault(); // Prevent default spacebar action (scrolling)
         onScrambleColors();
       }
     };
@@ -16,10 +16,16 @@ function Toolbar({ setColor, setPenSize, onScrambleColors, colors }) {
     };
   }, []);
 
+  const handleScrambleColors = () => {
+    onScrambleColors(); // Trigger color scrambling
+
+    // No need to clear canvas here, handled in App.js
+  };
+
   return (
     <div className="toolbar">
       <div className="toolbar-buttons">
-        <button className="toolbar-button" onClick={onScrambleColors}>
+        <button className="toolbar-button" onClick={handleScrambleColors}>
           Scramble Colors
         </button>
         {colors.map((color, index) => (
