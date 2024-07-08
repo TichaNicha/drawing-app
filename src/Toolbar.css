@@ -1,0 +1,20 @@
+.toolbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .toolbar-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .toolbar-button,
+  .toolbar-color-button,
+  .toolbar-slider {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
