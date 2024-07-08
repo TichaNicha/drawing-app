@@ -1,20 +1,19 @@
-.toolbar {
+.toolbar-buttons {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .toolbar-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    justify-content: space-between; /* Adjust alignment as needed */
   }
   
   .toolbar-button,
-  .toolbar-color-button,
+  .toolbar-color-button {
+    width: 20%; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    margin: 0 0px; /* Adjust margin as needed */
+    border: none;
+    background-size: cover;
+  }
+  
   .toolbar-slider {
-    padding: 10px 20px;
-    font-size: 16px;
+    width: 20%; /* Adjust width as needed */
+    margin: 0 10px; /* Adjust margin as needed */
   }
   

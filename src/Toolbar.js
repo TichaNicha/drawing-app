@@ -28,9 +28,7 @@ function Toolbar({ setColor, setPenSize, onScrambleColors, colors }) {
             onClick={() => setColor(color)}
             style={{ backgroundColor: color }}
             className="toolbar-color-button"
-          >
-            Color {index + 1}
-          </button>
+          />
         ))}
         <input
           type="range"
