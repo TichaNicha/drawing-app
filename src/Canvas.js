@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-function Canvas({ color, penSize }) {
-  const canvasRef = useRef(null);
+function Canvas({ color, penSize, canvasRef }) {
 
   useEffect(() => {
     const canvas = canvasRef.current;

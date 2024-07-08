@@ -16,16 +16,10 @@ function Toolbar({ setColor, setPenSize, onScrambleColors, colors }) {
     };
   }, []);
 
-  const handleScrambleColors = () => {
-    onScrambleColors(); // Trigger color scrambling
-
-    // No need to clear canvas here, handled in App.js
-  };
-
   return (
     <div className="toolbar">
       <div className="toolbar-buttons">
-        <button className="toolbar-button" onClick={handleScrambleColors}>
+        <button className="toolbar-button" onClick={onScrambleColors}>
           Scramble Colors
         </button>
         {colors.map((color, index) => (
