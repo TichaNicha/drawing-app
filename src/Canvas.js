@@ -1,16 +1,7 @@
-import React, { useRef, useState, useEffect, useImperativeHandle, forwardRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
-const Canvas = forwardRef(({ color, penSize }, ref) => {
-  const canvasRef = useRef(null);
+function Canvas({ color, penSize, canvasRef }) {
   const [drawing, setDrawing] = useState(false);
-
-  useImperativeHandle(ref, () => ({
-    clearCanvas: () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-  }));
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -53,6 +44,6 @@ const Canvas = forwardRef(({ color, penSize }, ref) => {
   return (
     <canvas ref={canvasRef} width="800" height="600" style={{ border: '1px solid #000' }} />
   );
-});
+}
 
 export default Canvas;
